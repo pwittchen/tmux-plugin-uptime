@@ -22,3 +22,4 @@ is_linux() {
 command_exists() {
   local command="$1"
   type "$command" >/dev/null 2>&1
+}
