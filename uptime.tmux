@@ -4,8 +4,8 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 source "$CURRENT_DIR/scripts/helpers.sh"
 
-battery_level="#($CURRENT_DIR/scripts/uptime.sh)"
-battery_level_interpolation="\#{uptime}"
+uptime_status="#($CURRENT_DIR/scripts/uptime.sh)"
+uptime_status_interpolation="\#{uptime}"
 
 set_tmux_option() {
 	local option="$1"
@@ -15,8 +15,8 @@ set_tmux_option() {
 
 do_interpolation() {
 	local string=$1
-	local battery_level_interpolated=${string/$uptime_interpolation/$uptime}
-	echo $battery_level_interpolated
+	local uptime_status_interpolated=${string/$uptime_status_interpolation/$uptime_status}
+	echo $uptime_status_interpolated
 }
 
 update_tmux_option() {
